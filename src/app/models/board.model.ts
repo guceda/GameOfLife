@@ -75,13 +75,16 @@ export class Board {
             this.board[xNext][yNext];
 
         // Alive cell keeps living
-        if (currentStatus === 1 && neighbours == 2 || neighbours == 3) {
+        if (currentStatus === 1 && (neighbours == 2 || neighbours == 3)) {
             return 1;
         }
         // Dead cell revives
         if (currentStatus === 0 && neighbours === 3) {
+            this.alive++;
             return 1;
         } 
+
+        if(currentStatus === 1) this.alive--;
         return 0;
         
     }

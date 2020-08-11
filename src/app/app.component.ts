@@ -32,7 +32,6 @@ export class AppComponent {
       if(this.gameStatus === 0) {
         this.board.checkBoard();
         this.generation++;
-        console.log('heu')
       }
     }, 100);
   }
