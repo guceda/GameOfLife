@@ -91,6 +91,7 @@ export class AppComponent {
     this.gameStatus = -1;
     this.board.reset();
     this.generation = 0;
+    this.stats= [];
     clearInterval(this.interval);
   }
 
