@@ -59,6 +59,7 @@ export class AppComponent {
   onClear() {
     this.gameStatus = -1;
     this.board.reset();
+    this.generation = 0;
     clearInterval(this.interval);
   }
 }
