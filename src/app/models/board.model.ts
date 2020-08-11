@@ -3,11 +3,12 @@
 export class Board {
     board: number[][];
     width: number;
-    height: number;
+    height: number;    alive: number;
 
     constructor(pWidth, pHeight) {
         this.width = pWidth;
         this.height = pHeight;
+        this.alive = 0;
         this.board = this._initialize();
     }
 
@@ -23,6 +24,7 @@ export class Board {
     }
 
     reset() {
+        this.alive = 0;
         this.board = this._initialize();
     }
 
@@ -31,7 +33,13 @@ export class Board {
     }
 
     changeStatus(coordX: number, coordY: number) {
-        this.board[coordX][coordY] = this.board[coordX][coordY] === 0 ? 1 : 0;
+        if(this.board[coordX][coordY] === 0) {
+            this.board[coordX][coordY] = 1;
+            this.alive++;
+        } else {
+            this.board[coordX][coordY] = 0;
+            this.alive--;
+        }
     }
 
     checkBoard() {

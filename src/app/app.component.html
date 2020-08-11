@@ -14,3 +14,8 @@
   <button (click)="onClickPause();">{{ [-1,1].includes(this.gameStatus) ? "Start" : "Pause" }}</button>
   <button (click)="onClear();"> CLEAR</button>
 </div>
+<div class="stats">
+  <ul>
+    <li>alive cells: {{board.alive}}</li>
+  </ul>
+</div>
