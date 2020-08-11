@@ -9,6 +9,7 @@ import { Board } from './models/board.model';
 export class AppComponent {
   numCols:number;
   numRows:number;
+  dragStatus:number;
   generation: number;
   gameStatus: number; // -1 iddle; 0 active; 1 Paused
 
@@ -19,6 +20,7 @@ export class AppComponent {
     this.numRows = 40;
     this.generation = 0;
     this.gameStatus = -1;
+    this.dragStatus = 0;
 
     this.board = new Board(this.numCols, this.numRows);
   }
@@ -32,8 +34,17 @@ export class AppComponent {
     }, 100);
   }
 
-  onClick(pRow, pCol) {
+  onMouseOver(pRow, pCol) {
+    this.dragStatus && this.board.changeStatus(pRow, pCol);
+  }
+
+  onSelectionStart(pRow, pCol) {
     this.board.changeStatus(pRow, pCol);
+    this.dragStatus = 1;
+  }
+
+  onSelectionEnd() {
+    this.dragStatus = 0;
   }
 
   onClickPause() {

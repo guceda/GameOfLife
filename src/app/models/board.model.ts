@@ -2,13 +2,20 @@
 
 export class Board {
     board: number[][];
+    width: number;
+    height: number;
 
     constructor(pWidth, pHeight) {
         this.board = [];
-        //FIXME: sacar de aquí
-        for (let i = 0; i < pWidth; i++) {
+        this.width = pWidth;
+        this.height = pHeight;
+        this._initialize();
+    }
+
+    _initialize() {
+        for (let i = 0; i < this.width; i++) {
             this.board[i] = [];
-            for (let j = 0; j < pHeight; j++) {
+            for (let j = 0; j < this.height; j++) {
                 this.board[i][j] = 0;
             }
         }
@@ -19,12 +26,10 @@ export class Board {
     }
 
     changeStatus(coordX: number, coordY: number) {
-        //FIXME Cambiar el bit NOT
         this.board[coordX][coordY] = this.board[coordX][coordY] === 0 ? 1 : 0;
     }
 
     checkBoard() {
-        //FIXME: simplify and optimize
         const tmpBoard = [];
         for (let i = 0; i < this.board.length; i++) {
             tmpBoard[i] = [];
@@ -36,17 +41,12 @@ export class Board {
     }
 
     checkRules(coordX: number, coordY: number): number {
-        //FIXME: crear ambas en el constructor
-        const width = this.board.length;
-        const height = this.board[0].length;
-
-        //FIXME: sacar a metodos privados.
         // Si me salgo del tablero cojo por el otro lado
-        const xPrev = coordX - 1 < 0 ? width - 1 : coordX - 1;
-        const xNext = coordX + 1 >= width ? 0 : coordX + 1;
+        const xPrev = coordX - 1 < 0 ? this.width - 1 : coordX - 1;
+        const xNext = coordX + 1 >= this.width ? 0 : coordX + 1;
 
-        const yPrev = coordY - 1 < 0 ? height - 1 : coordY - 1;
-        const yNext = coordY + 1 >= height ? 0 : coordY + 1;
+        const yPrev = coordY - 1 < 0 ? this.height - 1 : coordY - 1;
+        const yNext = coordY + 1 >= this.height ? 0 : coordY + 1;
 
         const currentStatus = this.status(coordX, coordY);
 
