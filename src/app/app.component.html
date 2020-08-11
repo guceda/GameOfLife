@@ -8,6 +8,7 @@
         ></button>
     </div>
   </div>
+  <div id="chart">hola</div>
 </div>
 
 <div class="settings">
@@ -15,7 +16,7 @@
     {{ this.gameStatus == -1 ? "START" : (this.gameStatus == 0 ? "Pause" : "Resume") }}
   </button>
   <button [disabled]="board.alive === 0 && this.generation === 0" (click)="onClear();"> RESET</button>
-  <button (click)="board.randomize();"> RANDOMIZE</button>
+  <button (click)="randomize()"> RANDOMIZE</button>
 </div>
 <div class="stats">
   <ul>
