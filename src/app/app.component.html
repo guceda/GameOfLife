@@ -14,7 +14,7 @@
   <button (click)="onClickPause()" [disabled]="board.alive === 0">
     {{ this.gameStatus == -1 ? "START" : (this.gameStatus == 0 ? "Pause" : "Resume") }}
   </button>
-  <button (click)="onClear();"> CLEAR</button>
+  <button [disabled]="board.alive === 0 && this.generation === 0" (click)="onClear();"> CLEAR</button>
 </div>
 <div class="stats">
   <ul>
