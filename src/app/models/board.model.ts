@@ -47,7 +47,8 @@ export class Board {
         for (let i = 0; i < this.board.length; i++) {
             tmpBoard[i] = [];
             for (let j = 0; j < this.board[i].length; j++) {
-                tmpBoard[i].push(this.checkRules(i,j));
+                const newState = this.checkRules(i,j);
+                tmpBoard[i].push(newState);
             }
         }
         this.board = [...tmpBoard];

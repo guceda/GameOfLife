@@ -12,6 +12,7 @@ export class AppComponent {
   dragStatus:number;
   generation: number;
   gameStatus: number; // -1 iddle; 0 active; 1 Paused
+  interval: any;
 
   board: Board;
 
@@ -21,15 +22,17 @@ export class AppComponent {
     this.generation = 0;
     this.gameStatus = -1;
     this.dragStatus = 0;
+    this.interval = null;
 
     this.board = new Board(this.numCols, this.numRows);
   }
 
-  ngOnInit() {
-    setInterval(() => {
+  start() {
+    this.interval = setInterval(() => {
       if(this.gameStatus === 0) {
         this.board.checkBoard();
         this.generation++;
+        console.log('heu')
       }
     }, 100);
   }
@@ -48,11 +51,13 @@ export class AppComponent {
   }
 
   onClickPause() {
+    this.gameStatus === -1 && this.start();
     this.gameStatus = this.gameStatus === 0 ? 1 : 0;
   }
 
   onClear() {
     this.gameStatus = -1;
     this.board.reset();
+    clearInterval(this.interval);
   }
 }
