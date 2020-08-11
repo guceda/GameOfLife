@@ -7,12 +7,13 @@ import { Board } from './models/board.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  numCols:number;
-  numRows:number;
-  dragStatus:number;
+  numCols: number;
+  numRows: number;
+  dragStatus: number;
   generation: number;
   gameStatus: number; // -1 iddle; 0 active; 1 Paused
-  interval: any;
+  initTime: number;
+  interval: number;
 
   board: Board;
 
@@ -23,13 +24,14 @@ export class AppComponent {
     this.gameStatus = -1;
     this.dragStatus = 0;
     this.interval = null;
+    this.initTime = null;
 
     this.board = new Board(this.numCols, this.numRows);
   }
 
   start() {
     this.interval = setInterval(() => {
-      if(this.gameStatus === 0) {
+      if (this.gameStatus === 0) {
         this.board.checkBoard();
         this.generation++;
       }
