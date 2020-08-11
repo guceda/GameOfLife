@@ -16,3 +16,16 @@
 .game button.alive {
     background-color: red;
 }
+
+.settings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.settings button{
+    width: 100px;
+    height: 20px;
+    background-color: wheat;
+    margin-top: 20px;
+}
