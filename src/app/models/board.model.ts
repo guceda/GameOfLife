@@ -3,7 +3,7 @@
 export class Board {
     board: number[][];
     width: number;
-    height: number;    alive: number;
+    height: number; alive: number;
 
     constructor(pWidth, pHeight) {
         this.width = pWidth;
@@ -11,6 +11,22 @@ export class Board {
         this.alive = 0;
         this.board = this._initialize();
     }
+
+    randomize() {
+        const board = [];
+        this.alive = 0;
+        const rdm = () =>(Math.random()>0.8)? 1 : 0;
+        for (let i = 0; i < this.width; i++) {
+            board[i] = [];
+            for (let j = 0; j < this.height; j++) {
+                const rd = rdm();
+                this.alive += rd;
+                board[i][j] = rd;
+            }
+        }
+        this.board = board;
+    }
+
 
     _initialize() {
         const board = [];
@@ -33,7 +49,7 @@ export class Board {
     }
 
     changeStatus(coordX: number, coordY: number) {
-        if(this.board[coordX][coordY] === 0) {
+        if (this.board[coordX][coordY] === 0) {
             this.board[coordX][coordY] = 1;
             this.alive++;
         } else {
@@ -47,7 +63,7 @@ export class Board {
         for (let i = 0; i < this.board.length; i++) {
             tmpBoard[i] = [];
             for (let j = 0; j < this.board[i].length; j++) {
-                const newState = this.checkRules(i,j);
+                const newState = this.checkRules(i, j);
                 tmpBoard[i].push(newState);
             }
         }
@@ -82,10 +98,10 @@ export class Board {
         if (currentStatus === 0 && neighbours === 3) {
             this.alive++;
             return 1;
-        } 
+        }
 
-        if(currentStatus === 1) this.alive--;
+        if (currentStatus === 1) this.alive--;
         return 0;
-        
+
     }
 }
