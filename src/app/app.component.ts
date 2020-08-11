@@ -50,4 +50,9 @@ export class AppComponent {
   onClickPause() {
     this.gameStatus = this.gameStatus === 0 ? 1 : 0;
   }
+
+  onClear() {
+    this.gameStatus = -1;
+    this.board.reset();
+  }
 }

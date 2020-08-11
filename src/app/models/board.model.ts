@@ -6,19 +6,24 @@ export class Board {
     height: number;
 
     constructor(pWidth, pHeight) {
-        this.board = [];
         this.width = pWidth;
         this.height = pHeight;
-        this._initialize();
+        this.board = this._initialize();
     }
 
     _initialize() {
+        const board = [];
         for (let i = 0; i < this.width; i++) {
-            this.board[i] = [];
+            board[i] = [];
             for (let j = 0; j < this.height; j++) {
-                this.board[i][j] = 0;
+                board[i][j] = 0;
             }
         }
+        return board;
+    }
+
+    reset() {
+        this.board = this._initialize();
     }
 
     status(coordX: number, coordY: number): number {
