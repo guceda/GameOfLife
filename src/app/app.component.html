@@ -11,7 +11,7 @@
 </div>
 
 <div class="settings">
-  <button (click)="onClickPause();">{{ [-1,1].includes(this.gameStatus) ? "Start" : "Pause" }}</button>
+  <button (click)="onClickPause();">{{ this.gameStatus == -1 ? "START" : (this.gameStatus == 0 ? "Pause" : "Resume") }}</button>
   <button (click)="onClear();"> CLEAR</button>
 </div>
 <div class="stats">
