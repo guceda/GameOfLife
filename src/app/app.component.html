@@ -1,11 +1,16 @@
 <div class="game">
   <div class="row" *ngFor="let row of numRows | numToArr">
-    <div class="col" *ngFor="let col of numCols | numToArr" (mousedown)="onSelectionStart(row, col);" (mouseup)="onSelectionEnd();">
-      <button
-        (mousedown)="onMouseOver(row, col)"
-        (mouseover)="onMouseOver(row, col)"
-        [ngClass]="{ alive: board.status(row,col) === 1}"
-        ></button>
+    <div 
+      class="col"
+      *ngFor="let col of numCols | numToArr"
+      (mousedown)="onSelectionStart(row, col);"
+      (mouseup)="onSelectionEnd();"
+      >
+        <button
+          (mousedown)="onMouseOver(row, col)"
+          (mouseover)="onMouseOver(row, col)"
+          [ngClass]="{ alive: board.status(row,col) === 1}"
+          ></button>
     </div>
   </div>
   <div id="chart">hola</div>
