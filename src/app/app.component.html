@@ -2,7 +2,7 @@
   <div class="row" *ngFor="let row of numRows | numToArr">
     <div class="col" *ngFor="let col of numCols | numToArr" (mousedown)="onSelectionStart(row, col);" (mouseup)="onSelectionEnd();">
       <button
-        (click)="onMouseOver(row, col)"
+        (mousedown)="onMouseOver(row, col)"
         (mouseover)="onMouseOver(row, col)"
         [ngClass]="{ alive: board.status(row,col) === 1}"
         ></button>
