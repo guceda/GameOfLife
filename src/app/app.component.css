@@ -5,11 +5,11 @@
 .row {
     display: flex;
     flex-direction: row;
-    margin: -4px;
+    margin: -2px;
 }
 .game button {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     background-color: white;
     border: 0.5px solid lightgrey;
 }
