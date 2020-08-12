@@ -20,7 +20,7 @@
   <button (click)="onClickPause()" [disabled]="board.alive === 0">
     {{ this.gameStatus == -1 ? "START" : (this.gameStatus == 0 ? "Pause" : "Resume") }}
   </button>
-  <button [disabled]="board.alive === 0 && this.generation === 0" (click)="onClear();"> RESET</button>
+  <button [disabled]="board.alive === 0 && this.generation === 0" (click)="onClear();"> STOP</button>
   <button (click)="randomize()"> RANDOMIZE</button>
 </div>
 <!-- <div class="stats">

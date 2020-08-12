@@ -15,7 +15,7 @@ export class Board {
     randomize() {
         const board = [];
         this.alive = 0;
-        const rdm = () =>(Math.random()>0.8)? 1 : 0;
+        const rdm = () =>(Math.random()>0.85)? 1 : 0;
         for (let i = 0; i < this.width; i++) {
             board[i] = [];
             for (let j = 0; j < this.height; j++) {

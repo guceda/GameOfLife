@@ -5,11 +5,11 @@
 .row {
     display: flex;
     flex-direction: row;
-    margin: -2px;
+    margin: -4px;
 }
 .game button {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     background-color: white;
     border: 0.5px solid lightgrey;
 }
@@ -32,5 +32,6 @@
 
 #chart {
     height: 70px;
+    margin-top: 10px;
     width: calc(100% * 2);
 }
