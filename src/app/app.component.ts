@@ -38,7 +38,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.chart = Highcharts.chart('chart', {
+    this.chart = Highcharts.chart(document.getElementById('chart'), {
       tooltip: { enabled: false },
       title: false,
       subtitle: false,
@@ -75,10 +75,16 @@ export class AppComponent {
   onSelectionStart(pRow, pCol) {
     this.board.changeStatus(pRow, pCol);
     this.dragStatus = 1;
+
+    //stop when adding when active.
+    if(this.gameStatus == 0) this.gameStatus = 1;
   }
 
   onSelectionEnd() {
     this.dragStatus = 0;
+
+    //restart when adding when active.
+    if(this.gameStatus == 1) this.gameStatus = 0;
   }
 
   onClickPause() {
