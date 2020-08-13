@@ -14,7 +14,7 @@
 .row {
     display: flex;
     flex-direction: row;
-    margin: -3px auto;
+    margin: -5px auto;
 }
 .game button {
     width: 15px;
@@ -38,11 +38,6 @@
     margin-top: 20px;
 }
 
-.settings button{
-    width: 100px;
-    height: 20px;
-    background-color: wheat;
-}
 
 #chart {
     width: 100%;

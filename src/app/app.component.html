@@ -11,12 +11,18 @@
   <div id="chart"></div>
 
   <div class="settings">
-    <button (click)="onClickPause()" [disabled]="board.alive === 0">
-      {{ this.gameStatus == -1 ? "START" : (this.gameStatus == 0 ? "Pause" : "Resume") }}
+    <button mat-mini-fab color="accent" (click)="onClickPause()" [disabled]="board.alive === 0">
+      <mat-icon>{{ this.gameStatus == -1 ? 'play_arrow' : (this.gameStatus == 0 ? 'pause' : 'play_arrow') }}</mat-icon>
     </button>
-    <button [disabled]="board.alive === 0 && this.generation === 0" (click)="onClear();"> STOP</button>
-    <button (click)="randomize()"> RANDOMIZE</button>
-    <button (click)="onSaveBoard()"> Save pattern</button>
+    <button (click)="onClear();" [disabled]="board.alive === 0 && this.generation === 0"  mat-mini-fab color="primary">
+      <mat-icon>stop</mat-icon>
+    </button>
+    <button (click)="randomize()" mat-mini-fab color="primary">
+      <mat-icon>transform</mat-icon>
+    </button>
+    <button (click)="onSaveBoard()" [disabled]="board.alive === 0 && this.generation === 0" mat-mini-fab color="basic">
+      <mat-icon>save</mat-icon>
+    </button>
     <select (change)="onLoadBoard($event.target.value)" [(ngModel)]="objValue" id="select-board" name="board">
       <option [selected]="true" [value]="custom">latest</option>
       <option *ngFor="let b of boards" [value]="b.id">{{b.id}}</option>

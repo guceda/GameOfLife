@@ -3,6 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NumToArrPipe } from './num-to-arr.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//Material components
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +16,10 @@ import { NumToArrPipe } from './num-to-arr.pipe';
     NumToArrPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
