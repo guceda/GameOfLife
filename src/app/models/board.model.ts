@@ -12,10 +12,15 @@ export class Board {
         this.board = this._initialize();
     }
 
+    updateBoard(board, alive) {
+        this.board = board;
+        this.alive = alive;
+    }
+
     randomize() {
         const board = [];
         this.alive = 0;
-        const rdm = () =>(Math.random()>0.85)? 1 : 0;
+        const rdm = () => (Math.random() > 0.85) ? 1 : 0;
         for (let i = 0; i < this.width; i++) {
             board[i] = [];
             for (let j = 0; j < this.height; j++) {
@@ -26,7 +31,6 @@ export class Board {
         }
         this.board = board;
     }
-
 
     _initialize() {
         const board = [];
