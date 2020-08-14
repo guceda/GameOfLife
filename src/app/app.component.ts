@@ -36,8 +36,8 @@ export class AppComponent {
   board: Board;
 
   constructor() {
-    this.numCols = 40;
-    this.numRows = 40;
+    this.numCols = 60;
+    this.numRows = 60;
     this.generation = 0;
     this.gameStatus = -1;
     this.dragStatus = 0;

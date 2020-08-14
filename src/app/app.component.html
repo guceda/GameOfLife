@@ -1,11 +1,11 @@
 <div class="container">
   <div class="game">
     <div class="row" *ngFor="let row of numRows | numToArr">
-      <div class="col" *ngFor="let col of numCols | numToArr" (mousedown)="onSelectionStart(row, col);"
-        (mouseup)="onSelectionEnd();">
-        <button (mousedown)="onMouseOver(row, col)" (mouseover)="onMouseOver(row, col)"
-          [ngClass]="{ alive: board.status(row,col) === 1}"></button>
-      </div>
+
+      <button *ngFor="let col of numCols | numToArr" (mouseover)="onMouseOver(row, col)"
+        (mousedown)="onSelectionStart(row, col);" (mouseup)="onSelectionEnd();"
+        [ngClass]="{ alive: board.status(row,col) === 1}"></button>
+
     </div>
   </div>
   <div id="chart"></div>
@@ -14,7 +14,7 @@
     <button mat-mini-fab color="accent" (click)="onClickPause()" [disabled]="board.alive === 0">
       <mat-icon>{{ this.gameStatus == -1 ? 'play_arrow' : (this.gameStatus == 0 ? 'pause' : 'play_arrow') }}</mat-icon>
     </button>
-    <button (click)="onClear();" [disabled]="board.alive === 0 && this.generation === 0"  mat-mini-fab color="primary">
+    <button (click)="onClear();" [disabled]="board.alive === 0 && this.generation === 0" mat-mini-fab color="primary">
       <mat-icon>stop</mat-icon>
     </button>
     <button (click)="randomize()" mat-mini-fab color="primary">
@@ -28,11 +28,9 @@
       <option *ngFor="let b of boards" [value]="b.id">{{b.id}}</option>
     </select>
   </div>
-  <!-- <div class="stats">
-  <ul>
-    <li>alive cells: {{board.alive}}</li>
-    <li>generation: {{this.generation}}</li>
-  </ul>
-</div> -->
+  <div class="stats">
+    <mat-icon matBadge="{{board.alive}}" matBadgeColor="warn">dashboard</mat-icon>
+    <mat-icon matBadge="{{generation}}" matBadgeColor="warn">alarm</mat-icon>
+  </div>
 
 </div>
