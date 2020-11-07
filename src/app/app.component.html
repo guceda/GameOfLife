@@ -23,8 +23,8 @@
     <button (click)="onSaveBoard()" [disabled]="board.alive === 0 && this.generation === 0" mat-mini-fab color="basic">
       <mat-icon>save</mat-icon>
     </button>
-    <select (change)="onLoadBoard($event.target.value)" [(ngModel)]="objValue" id="select-board" name="board">
-      <option [selected]="true" [value]="custom">latest</option>
+    <select (change)="onLoadBoard($event.target.value)" id="select-board" name="board">
+      <option [selected]="true" >latest</option>
       <option *ngFor="let b of boards" [value]="b.id">{{b.id}}</option>
     </select>
   </div>
