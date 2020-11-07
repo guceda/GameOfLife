@@ -59,15 +59,15 @@ export class AppComponent {
   generateChart() {
     return Highcharts.chart({
       tooltip: { enabled: false },
-      title: false,
-      subtitle: false,
+      title : {text:''},
+      subtitle: { text:''},
       exporting: { enabled: false },
       chart: { type: 'line', renderTo:document.getElementById('chart')},
       legend: { enabled: false },
       xAxis: { visible: false },
       yAxis: { type: 'logarithmic', visible: false },
       credits: { enabled: false },
-      series: [{ data: [], color: 'coral' }],
+      series: [{ data: [], color: 'coral', type:'line' }],
       plotOptions: { series: { marker: { enabled: false } } }
     });
   }
