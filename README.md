@@ -25,10 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Deployment
 
 This will generate a production build and deploy it in github pages. It will be accesible under the following link:
-`https://guceda.github.io/gameOfLife/`
+`https://guceda.github.io/gameoflife/`
 
 ```sh
-npm run deploy
+ng deploy
 ```
 
 ## Further help
