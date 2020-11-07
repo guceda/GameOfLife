@@ -1,7 +1,7 @@
 {
-  "homepage": "http://guceda.github.io/gameOfLife",
-  "name": "game-of-life",
-  "version": "0.0.0",
+  "homepage": "http://guceda.github.io/gameoflife",
+  "name": "gameoflife",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
